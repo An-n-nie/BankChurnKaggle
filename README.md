@@ -1,9 +1,8 @@
 ![](UTA-DataScience-Logo.png)
 
-# Project Title
+# Bank Churn Kaggle Challenge
 
-* **One Sentence Summary** Ex: This repository holds an attempt to apply LSTMs to Stock Market using data from
-"Get Rich" Kaggle challenge (provide link). 
+* This repository holds an attempt to apply Histogram-based Gradient Boosting to predict churn rates at a bank provided through (["Binary Classification with a Bank Churn Dataset"](https://www.kaggle.com/competitions/playground-series-s4e1/overview) Kaggle challenge. 
 
 ## Overview
 
@@ -14,15 +13,13 @@
 
 ## Summary of Workdone
 
-Include only the sections that are relevant an appropriate.
-
 ### Data
 
 * Data:
-  * Type: For example
+  * Type: Tabular
     * Input: medical images (1000x1000 pixel jpegs), CSV file: image filename -> diagnosis
     * Input: CSV file of features, output: signal/background flag in 1st column.
-  * Size: How much data?
+  * Size: 165034 rows, 14 columns
   * Instances (Train, Test, Validation Split): how many data points? Ex: 1000 patients for training, 200 for testing, none for validation
 
 #### Preprocessing / Clean up
@@ -31,7 +28,7 @@ Include only the sections that are relevant an appropriate.
 
 #### Data Visualization
 
-Show a few visualization of the data and say a few words about what you see.
+Show a few visualization of the data and say a few words about what y
 
 ### Problem Formulation
 
@@ -58,12 +55,11 @@ Show a few visualization of the data and say a few words about what you see.
 
 ### Conclusions
 
-* State any conclusions you can infer from your work. Example: LSTM work better than GRU.
+* HistGradientBoost have a slight edge over Decision Tree in this dataset. However, HistGradientBoost, DecisionTree, and RandomForest all performed in similar ranges for this problem. If aiming for the sake of simplicity, Decision Tree can do well without withholding too much potentials. 
 
 ### Future Work
 
-* What would be the next thing that you would try.
-* What are some other studies that can be done starting from here.
+* Other machine learning algorithms like XGBoost, CatBoost, and LightGMBoost are promissery steps for the future. Many others have tried these algortihms and they proved, in general, to be very effective at solving and scoring high marks in Kaggle challenges.
 
 ## How to reproduce results
 
@@ -75,18 +71,16 @@ Show a few visualization of the data and say a few words about what you see.
 
 ### Overview of files in repository
 
-* Describe the directory structure, if any.
-* List all relavent files and describe their role in the package.
-* An example:
-  * utils.py: various functions that are used in cleaning and visualizing data.
-  * preprocess.ipynb: Takes input data in CSV and writes out data frame after cleanup.
-  * visualization.ipynb: Creates various visualizations of the data.
-  * models.py: Contains functions that build the various models.
-  * training-model-1.ipynb: Trains the first model and saves model during training.
-  * training-model-2.ipynb: Trains the second model and saves model during training.
-  * training-model-3.ipynb: Trains the third model and saves model during training.
-  * performance.ipynb: loads multiple trained models and compares results.
-  * inference.ipynb: loads a trained model and applies it to test data to create kaggle submission.
+* The repository should be read from Data Load n Initial Look, Data Viz, Data Clean N Prep, ML, and Bank Churn Final to obtain better understanding of the workflow. 
+  * Data_Load_N_Initial_Look.ipynb: 
+  * Data_Viz.ipynb: Takes input data in CSV and writes out data frame after cleanup.
+  * Data_Clean_N_Prep.ipynb: Creates various visualizations of the data.
+  * ML.ipynb: Contains functions that build the various models.
+  * Bank_Churn_Final.ipynb: Contains all the preprocessing and machine learning processes necessary to obtain results and convert them into the proper submission format.
+  * submission.csv: Submission file created after all of the work is done. 
+  * sample_submission.csv: A sample of the submission format provided by the challenge.
+  * train.csv: Train dataset provided by the challenge.
+  * test.csv: Test dataset provided by the challenge. 
 
 * Note that all of these notebooks should contain enough text for someone to understand what is happening.
 
@@ -111,7 +105,7 @@ Show a few visualization of the data and say a few words about what you see.
 
 ## Citations
 
-* Provide any references.
+* Kaggle Dataset: Walter Reade and Ashley Chow. Binary Classification with a Bank Churn Dataset . ([https://kaggle.com/competitions/playground-series-s4e1](https://kaggle.com/competitions/playground-series-s4e1)), 2024. Kaggle.
 
 
 
