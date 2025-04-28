@@ -37,7 +37,7 @@
 
 #### Data Visualization
 * There were some class imbalance found between the signal and background variables.
-* Out of all of the numerical features, Age seem to be a good separator for the siggnal and bakcground rates. 
+* Out of all of the numerical features, age seem to be a good separator for the signal and background rates. 
 
 
 ### Problem Formulation
@@ -56,21 +56,18 @@
 ### Training
 
 * Describe the training:
-  * How you trained: software and hardware.
-  * How did training take.
-  * Training curves (loss vs epoch for test/train).
-  * How did you decide to stop training.
-  * Any difficulties? How did you resolve them?
+* All of the machine learning algorthms above were imported into a notebook and fitted to the train dataset. Training took under 1 minute for all models because the dataset is not big and they are not conducting deep learning processes. 
+  * How you trained: software and hardware
 
 ### Performance Comparison
 
-* Models are evaluated using the area under the ROC curve
+* Models are evaluated using the area under the ROC curve. 
 * Show/compare results in one table.
 * Show one (or few) visualization(s) of results, for example ROC curves.
 
 ### Conclusions
 
-* HistGradientBoost have a slight edge over Decision Tree in this dataset. However, HistGradientBoost, DecisionTree, and RandomForest all performed in similar ranges for this problem. If aiming for the sake of simplicity, Decision Tree can do well without withholding too much potentials. 
+* Histogram-based Gradient Boosting have a slight edge over Decision Tree in this dataset. However, HistGradientBoost, DecisionTree, and RandomForest all performed in similar ranges for this problem. If aiming for the sake of simplicity, Decision Tree can do well without withholding too much potentials. 
 
 ### Future Work
 
