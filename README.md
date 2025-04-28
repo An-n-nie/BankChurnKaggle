@@ -2,7 +2,7 @@
 
 # Bank Churn Kaggle Challenge
 
-* This repository holds an attempt to apply Histogram-based Gradient Boosting to predict churn rates at a bank provided through (["Binary Classification with a Bank Churn Dataset"](https://www.kaggle.com/competitions/playground-series-s4e1/overview) Kaggle challenge. 
+* This repository holds an attempt to apply Histogram-based Gradient Boosting to predict churn rates at a bank provided through ["Binary Classification with a Bank Churn Dataset"](https://www.kaggle.com/competitions/playground-series-s4e1/overview) Kaggle challenge. 
 
 ## Overview
 
@@ -102,7 +102,7 @@
 
 ### Data
 
-* Data for this challenge can be downloaded through the (["Kaggle Challenge website"](https://www.kaggle.com/competitions/playground-series-s4e1/overview). Most convenitently, the API for Kaggle can be downloaded into Terminal which should then be relocated to the correct .kaggle folder. Then, use kaggle command to download datasets from the kaggle websites into jupyter notebook or any preferred environment. 
+* Data for this challenge can be downloaded through the ["Kaggle Challenge website"](https://www.kaggle.com/competitions/playground-series-s4e1/overview). Most convenitently, the API for Kaggle can be downloaded into Terminal which should then be relocated to the correct .kaggle folder. Then, use kaggle command to download datasets from the kaggle websites into jupyter notebook or any preferred environment. 
 
 ### Training
 
