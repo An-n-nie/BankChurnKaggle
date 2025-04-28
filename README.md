@@ -2,11 +2,11 @@
 
 # Bank Churn Kaggle Challenge
 
-* This repository holds an attempt to apply Histogram-based Gradient Boosting to predict churn rates at a bank provided through ["Binary Classification with a Bank Churn Dataset"](https://www.kaggle.com/competitions/playground-series-s4e1/overview) Kaggle challenge. 
+This repository holds an attempt to apply Histogram-based Gradient Boosting to predict churn rates at a bank provided through ["Binary Classification with a Bank Churn Dataset"](https://www.kaggle.com/competitions/playground-series-s4e1/overview) Kaggle challenge. 
 
 ## Overview
 
-* The goal of the Kaggle challenge was to use a tabular dataset containing various banking information to predict whether a customer keeps their account or churn it. This repository considers the task at hand a binary classification problem and uses different machine learning models to sample their performances. Then, the model with the best performance will undergo some model tuning before proceeding to apply it to the final dataset. In this case, Histogram-based Gradient Boosting was the best performing model, achieving an average area under the ROC curve score of 88.75%. The last-updated score on the Kaggle challenge's leader board was 90.59%.
+The goal of the Kaggle challenge was to use a tabular dataset containing various banking information to predict whether a customer keeps their account or churn it. This repository considers the task at hand a binary classification problem and uses different machine learning models to sample their performances. Then, the model with the best performance will undergo some model tuning before proceeding to apply it to the final dataset. In this case, Histogram-based Gradient Boosting was the best performing model, achieving an average area under the ROC curve score of 88.75%. The last-updated score on the Kaggle challenge's leader board was 90.59%.
 
 ## Summary of Workdone
 
