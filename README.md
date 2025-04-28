@@ -6,10 +6,7 @@
 
 ## Overview
 
-* This section could contain a short paragraph which include the following:
-  * **Definition of the tasks / challenge**  Ex: The task, as defined by the Kaggle challenge is to use a time series of 12 features, sampled daily for 1 month, to predict the next day's price of a stock.
-  * **Your approach** Ex: The approach in this repository formulates the problem as regression task, using deep recurrent neural networks as the model with the full time series of features as input. We compared the performance of 3 different network architectures.
-  * **Summary of the performance achieved** Ex: Our best model was able to predict the next day stock price within 23%, 90% of the time. At the time of writing, the best performance on Kaggle of this metric is 18%.
+* The goal of the Kaggle challenge was to use a tabular dataset containing various banking information to predict whether a customer keeps their account or churn it. This repository considers the task at hand a binary classification problem and uses different machine learning models to sample their performances. Then, the model with the best performance will undergo some model tuning before proceeding to apply it to the final dataset. In this case, Histogram-based Gradient Boosting was the best performing model, achieving an average area under the ROC curve score of 88.75%. The last-updated score on the Kaggle challenge's leader board was 90.59%.
 
 ## Summary of Workdone
 
@@ -17,26 +14,44 @@
 
 * Data:
   * Type: Tabular
-    * Input: medical images (1000x1000 pixel jpegs), CSV file: image filename -> diagnosis
-    * Input: CSV file of features, output: signal/background flag in 1st column.
-  * Size: 165034 rows, 14 columns
-  * Instances (Train, Test, Validation Split): how many data points? Ex: 1000 patients for training, 200 for testing, none for validation
+    * Input: CSV files (train, test) of different bank-related features (tenure, credit score, balance, etc.)
+    * Output: signal/background rates
+  * Size:
+    * Train: 165034 rows, 14 columns (last column - "Exited" rates for signal/background)
+    * Test: 110023 rows, 13 columns
+  * Instances: Train.csv file is split into
+    * 60% Train
+    * 20% Validation
+    * 20% Test
+
 
 #### Preprocessing / Clean up
 
-* Describe any manipulations you performed to the data.
+* Null: No null values found
+* Duplicates: some were found after removing id and customer id columns, revealing customers with same surnames and same account balances and estimated salaries. These were assumed to be duplicates and removed. 
+* Categorical columns: Geography and Gender columns were onehot encoded using OneHotEncoder from Scikitlearn.
+* Numerical columns:
+  * Credit score, balance, age, tenure, estimated salary and number of products columns were scaled using StandardScaler from Scikitlearn. (both MinMaxScaler and StandardScaler were used and both gave same results.)
+  * The rest of the numerical columns were already in good range (i.e. binary)
+
 
 #### Data Visualization
+* There were some class imbalance found between the signal and background variables.
+* Out of all of the numerical features, Age seem to be a good separator for the siggnal and bakcground rates. 
 
-Show a few visualization of the data and say a few words about what y
 
 ### Problem Formulation
 
 * Define:
   * Input / Output
   * Models
-    * Describe the different models you tried and why.
-  * Loss, Optimizer, other Hyperparameters.
+    * Decision Tree:
+    * Histogram-based Gradient Boosting:
+    * Random Forest:
+    * Logistic Regression:
+    * K-Nearest Neighbors:
+  * Parameters:
+    * All models were 
 
 ### Training
 
@@ -49,7 +64,7 @@ Show a few visualization of the data and say a few words about what y
 
 ### Performance Comparison
 
-* Clearly define the key performance metric(s).
+* Models are evaluated using the area under the ROC curve
 * Show/compare results in one table.
 * Show one (or few) visualization(s) of results, for example ROC curves.
 
@@ -71,7 +86,7 @@ Show a few visualization of the data and say a few words about what y
 
 ### Overview of files in repository
 
-* The repository should be read from Data Load n Initial Look, Data Viz, Data Clean N Prep, ML, and Bank Churn Final to obtain better understanding of the workflow. 
+* The repository should be read from Data Load n Initial Look, Data Viz, Data Clean N Prep, ML, and Bank Churn Final to obtain a good understanding of the workflow. 
   * Data_Load_N_Initial_Look.ipynb: 
   * Data_Viz.ipynb: Takes input data in CSV and writes out data frame after cleanup.
   * Data_Clean_N_Prep.ipynb: Creates various visualizations of the data.
@@ -82,25 +97,23 @@ Show a few visualization of the data and say a few words about what y
   * train.csv: Train dataset provided by the challenge.
   * test.csv: Test dataset provided by the challenge. 
 
-* Note that all of these notebooks should contain enough text for someone to understand what is happening.
 
 ### Software Setup
-* List all of the required packages.
-* If not standard, provide or point to instruction for installing the packages.
-* Describe how to install your package.
+* Libraries like pandas, matplotlib, numpy, math, and scipy are needed and can be called using import. 
+* Scikit learn needs to be downloaded into terminal using pip install before importing it into notebook.
+
 
 ### Data
 
-* Point to where they can download the data.
-* Lead them through preprocessing steps, if necessary.
+* Data for this challenge can be downloaded through the (["Kaggle Challenge website"](https://www.kaggle.com/competitions/playground-series-s4e1/overview). Most convenitently, the API for Kaggle can be downloaded into Terminal which should then be relocated to the correct .kaggle folder. Then, use kaggle command to download datasets from the kaggle websites into jupyter notebook or any preferred environment. 
 
 ### Training
 
-* Describe how to train the model
+* Different models are initiated, fitted and trained on the train portion (60% of total data points) of train.csv dataset.
 
 #### Performance Evaluation
 
-* Describe how to run the performance evaluation.
+* Performance of the models can be evaluated via calculating the area under the ROC curve scores on the validation and test portions of the dataset. Cross-validation tests should also be run to ensure unbiased results. 
 
 
 ## Citations
