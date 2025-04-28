@@ -51,13 +51,12 @@
     * Logistic Regression:
     * K-Nearest Neighbors:
   * Parameters:
-    * All models were 
+    * All models were initiually tuned with parameters that would most likely fit in with the data set.
+    * 
 
 ### Training
 
-* Describe the training:
 * All of the machine learning algorthms above were imported into a notebook and fitted to the train dataset. Training took under 1 minute for all models because the dataset is not big and they are not conducting deep learning processes. 
-  * How you trained: software and hardware
 
 ### Performance Comparison
 
@@ -75,20 +74,17 @@
 
 ## How to reproduce results
 
-* In this section, provide instructions at least one of the following:
-   * Reproduce your results fully, including training.
-   * Apply this package to other data. For example, how to use the model you trained.
-   * Use this package to perform their own study.
-* Also describe what resources to use for this package, if appropirate. For example, point them to Collab and TPUs.
+* Reproducing results obtained in this repository can be done simply by following the workflow indicated below. This is preferably done in a Jupyter Notebook environment on a MacOS with python, scikit learn, and potentially the Kaggle API installed into Terminal. Other software setups and steps to train and evaluate model performances are further expanded in the notebooks included in this repository.
 
 ### Overview of files in repository
 
 * The repository should be read from Data Load n Initial Look, Data Viz, Data Clean N Prep, ML, and Bank Churn Final to obtain a good understanding of the workflow. 
-  * Data_Load_N_Initial_Look.ipynb: 
-  * Data_Viz.ipynb: Takes input data in CSV and writes out data frame after cleanup.
-  * Data_Clean_N_Prep.ipynb: Creates various visualizations of the data.
-  * ML.ipynb: Contains functions that build the various models.
+  * Data_Load_N_Initial_Look.ipynb: Downloads the bank churn dataset and explores its contents quickly.
+  * Data_Viz.ipynb: Creates various visualizations of the data
+  * Data_Clean_N_Prep.ipynb: Conducts preprocessing processes like deleting duplcations, onehot encoding variables as well as scaling numerical features.
+  * ML.ipynb: Contains functions that build various machine learning models and evaluate their performances.
   * Bank_Churn_Final.ipynb: Contains all the preprocessing and machine learning processes necessary to obtain results and convert them into the proper submission format.
+* Explanations of other files seen: 
   * submission.csv: Submission file created after all of the work is done. 
   * sample_submission.csv: A sample of the submission format provided by the challenge.
   * train.csv: Train dataset provided by the challenge.
