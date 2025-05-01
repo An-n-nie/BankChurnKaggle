@@ -65,7 +65,7 @@ The goal of the Kaggle challenge was to use a tabular dataset containing various
 ### Performance Comparison
 
 * Models were evaluated using some standard metrics like the accuracy score, F1 score, and recall score.
-  ![](Pictures/Metrics.png)
+  ![](Pictures/results_table.html)
   
 * However, for the purpose of this challenge, the main evaluation score is based on the area under the ROC curve. ROC curves and its area score was calculated for all models used for the training dataset at 60% split. Cross-validation tests were run to ensure that the scores were not biased or happened by chance.
   
