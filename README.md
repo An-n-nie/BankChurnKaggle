@@ -38,11 +38,11 @@ The goal of the Kaggle challenge was to use a tabular dataset containing various
 #### Data Visualization
 * There were some class imbalance found between the signal and background variables.
 
-  ![](Imbalance.png)
+  ![](Pictures/Imbalance.png)
   
 * Out of all of the numerical features, age seem to be a good separator for the signal and background rates.
 
-  ![](Features.png)
+  ![](Pictures/Features.png)
 
 
 ### Problem Formulation
@@ -65,7 +65,7 @@ The goal of the Kaggle challenge was to use a tabular dataset containing various
 ### Performance Comparison
 
 * Models were evaluated using some standard metrics like the accuracy score, F1 score, and recall score.
-  ![](Metrics.png)
+  ![](Pictures/Metrics.png)
   
 * However, for the purpose of this challenge, the main evaluation score is based on the area under the ROC curve. ROC curves and its area score was calculated for all models used for the training dataset at 60% split. Cross-validation tests were run to ensure that the scores were not biased or happened by chance.
   
