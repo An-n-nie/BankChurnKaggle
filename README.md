@@ -1,5 +1,3 @@
-![](UTA-DataScience-Logo.png)
-
 # Bank Churn Kaggle Challenge
 
 This repository holds an attempt to apply Histogram-based Gradient Boosting to predict churn rates at a bank provided through the [Binary Classification with a Bank Churn Dataset](https://www.kaggle.com/competitions/playground-series-s4e1/overview) Kaggle challenge. 
@@ -12,17 +10,16 @@ The goal of the Kaggle challenge was to use a tabular dataset containing various
 
 ### Data
 
-* Data:
-  * Type: Tabular
-    * Input: CSV files (train, test) of different bank-related features (tenure, credit score, balance, etc.)
-    * Output: signal/background rates
-  * Size:
-    * Train: 165034 rows, 14 columns (last column - "Exited" rates for signal/background)
-    * Test: 110023 rows, 13 columns
-  * Instances: Train.csv file is split into
-    * 60% Train
-    * 20% Validation
-    * 20% Test
+ * Type: Tabular
+   * Input: CSV files (train, test) of different bank-related features (tenure, credit score, balance, etc.)
+   * Output: signal/background rates
+ * Size:
+   * Train: 165034 rows, 14 columns (last column - "Exited" rates for signal/background)
+   * Test: 110023 rows, 13 columns
+ * Instances: Train.csv file is split into
+   * 60% Train
+   * 20% Validation
+   * 20% Test
 
 
 #### Preprocessing / Clean up
@@ -36,13 +33,21 @@ The goal of the Kaggle challenge was to use a tabular dataset containing various
 
 
 #### Data Visualization
-* There were some class imbalance found between the signal and background variables.
+There were some class imbalance found between the signal and background variables.
 
+<div align='center'>
+  
   ![](Pictures/Imbalance.png)
   
-* Out of all of the numerical features, age seem to be a good separator for the signal and background rates.
+</div>
+  
+Out of all of the numerical features, age seem to be a good separator for the signal and background rates.
 
+<div align='center'>
+  
   ![](Pictures/Features.png)
+
+</div>
 
 
 ### Problem Formulation
@@ -55,42 +60,65 @@ The goal of the Kaggle challenge was to use a tabular dataset containing various
     * Logistic Regression: chosen because it's a good baseline model to handle binary problems. 
     * K-Nearest Neighbors: chosen as it handles binary problem in a different way compared to the rest. 
   * Parameters:
-    * All models were initiually tuned with parameters that would most likely fit in with the data set. 
-    * HGB was fruther tuned using jchkhkvhhfdujrhnvfi
+    * All models were initiually tuned with parameters that would most likely fit in with the data set (random state, balanced class weight, etc.) 
+    * Histogram-based Gradient Boosting was ruther tuned using Scikit learn's Randomized Searched CV to find the best-performing parameters for the model.
 
 ### Training
 
-* All of the machine learning algorthms above were imported into a notebook and fitted to the train dataset. Training took under 1 minute for all models because the dataset is not big and they are not conducting deep learning processes. 
+All of the machine learning algorthms above were imported into a notebook and fitted to the train dataset. Training took under 1 minute for all models because the dataset is not big and they are not conducting deep learning processes. 
 
 ### Performance Comparison
 
-* Models were evaluated using some standard metrics like the accuracy score, F1 score, and recall score.
-  ![](Pictures/Metrics.png)
+ Models were evaluated using some standard metrics like the accuracy score, F1 score, and recall score.
+
   
-* However, for the purpose of this challenge, the main evaluation score is based on the area under the ROC curve. ROC curves and its area score was calculated for all models used for the training dataset at 60% split. Cross-validation tests were run to ensure that the scores were not biased or happened by chance.
+<div align="center">
+
+| Classifier           | Accuracy |    F1    | Precision |  Recall  | AUC Score |
+|----------------------|----------|----------|-----------|----------|-----------|
+| LogReg               | 0.752835 | 0.771438 | 0.4458    | 0.734278 | 0.818223  |
+| RandomForest         | 0.817082 | 0.827643 | 0.544846  | 0.776348 | 0.883747  |
+| HGB                  | 0.813565 | 0.824983 | 0.537952  | 0.786902 | 0.887020  |
+| Decision Tree        | 0.813838 | 0.824218 | 0.539990  | 0.758421 | 0.871243  |
+| K-Nearest Neighbors  | 0.844127 | 0.835958 | 0.668629  | 0.509036 | 0.819269  |
+
+</div>
+
   
-  ![](ML_AUC.png)
+ However, for the purpose of this challenge, the main evaluation score is based on the area under the ROC curve. ROC curves and its area score was calculated for all models used for the training dataset at 60% split. Cross-validation tests were run to ensure that the scores were not biased or happened by chance.
+
+
+<div align='center'>  
+  
+  ![](Pictures/ML_AUC.png)
+  
+</div>
  
-* Histgoram-based Gradient Boosting seemed to perform the best. The model was then chosen to undergo additional tunings before applying it to an 80-20 train test split of the training dataset. After running cross-validation tests, it seemed an increase in data points slightly decreased the score of the model. However, this score average would still be among the highest out of all models tested if rounded to the nearest one place.
-  
-  ![](HGB_AUC.png)
+ Histgoram-based Gradient Boosting seemed to perform the best. The model was then chosen to undergo additional tunings before applying it to an 80-20 train test split of the training dataset. After running cross-validation tests, it seemed an increase in data points slightly decreased the score of the model. However, this score average would still be among the highest out of all models tested if rounded to the nearest one place.
+
+
+  <div align='center'>
+    
+  ![](Pictures/HGB_AUC.png)
+
+  </div>
 
 
 ### Conclusions
 
-* Histogram-based Gradient Boosting have a slight edge over Decision Tree in this dataset. However, HistGradientBoost, DecisionTree, and RandomForest all performed in similar ranges for this problem. If aiming for the sake of simplicity, Decision Tree can do well without withholding too much potentials. 
+ Histogram-based Gradient Boosting have a slight edge over Decision Tree in this dataset. However, HistGradientBoost, DecisionTree, and RandomForest all performed in similar ranges for this problem. If aiming for the sake of simplicity, Decision Tree can do well without withholding too much potentials. 
 
 ### Future Work
 
-* Other machine learning algorithms like XGBoost, CatBoost, and LightGMBoost are promissery steps for the future. Many others have tried these algortihms and they proved, in general, to be very effective at solving and scoring high marks in Kaggle challenges.
+ Other machine learning algorithms like XGBoost, CatBoost, and LightGMBoost are promissery steps for the future. Many others have tried these algortihms and they proved, in general, to be very effective at solving and scoring high marks in Kaggle challenges.
 
 ## How to reproduce results
 
-* Reproducing results obtained in this repository can be done simply by following the workflow indicated below. This is preferably done in a Jupyter Notebook environment on a MacOS with python, scikit learn, and potentially the Kaggle API installed into Terminal. Other software setups and steps to train and evaluate model performances are further expanded in the notebooks included in this repository.
+ Reproducing results obtained in this repository can be done simply by following the workflow indicated below. This is preferably done in a Jupyter Notebook environment on a MacOS with python, scikit learn, and potentially the Kaggle API installed into Terminal. Other software setups and steps to train and evaluate model performances are further expanded in the notebooks included in this repository.
 
 ### Overview of files in repository
 
-* The files in this repository in Kaggle_Bank folder should be read from Data Load n Initial Look, Data Viz, Data Clean N Prep, ML, and Bank Churn Final to obtain a good understanding of the workflow. 
+The files in this repository in Kaggle_Bank folder should be read from Data Load n Initial Look, Data Viz, Data Clean N Prep, ML, and Bank Churn Final to obtain a good understanding of the workflow. 
   * Data_Load_N_Initial_Look.ipynb: Downloads the bank churn dataset and explores its contents quickly.
   * Data_Viz.ipynb: Creates various visualizations of the data
   * Data_Clean_N_Prep.ipynb: Conducts preprocessing processes like deleting duplcations, onehot encoding variables as well as scaling numerical features.
@@ -101,7 +129,8 @@ The goal of the Kaggle challenge was to use a tabular dataset containing various
   * sample_submission.csv: A sample of the submission format provided by the challenge.
   * train.csv: Train dataset provided by the challenge.
   * test.csv: Test dataset provided by the challenge.
-* Pictures folder contains all images displayed throughout this readme file. 
+
+Pictures folder contains all images displayed throughout this readme file. 
 
 
 ### Software Setup
@@ -111,20 +140,20 @@ The goal of the Kaggle challenge was to use a tabular dataset containing various
 
 ### Data
 
-* Data for this challenge can be downloaded through the [Kaggle Challenge website](https://www.kaggle.com/competitions/playground-series-s4e1/overview). Most convenitently, the API for Kaggle can be downloaded into Terminal which should then be relocated to the correct .kaggle folder. Then, use kaggle command to download datasets from the kaggle websites into jupyter notebook or any preferred environment. 
+ Data for this challenge can be downloaded through the [Kaggle Challenge website](https://www.kaggle.com/competitions/playground-series-s4e1/overview). Most convenitently, the API for Kaggle can be downloaded into Terminal which should then be relocated to the correct .kaggle folder. Then, use kaggle command to download datasets from the kaggle websites into jupyter notebook or any preferred environment. 
 
 ### Training
 
-* Different models are initiated, fitted and trained on the train portion (60% of total data points) of train.csv dataset.
+ Different models are initiated, fitted and trained on the train portion (60% of total data points) of train.csv dataset.
 
-#### Performance Evaluation
+### Performance Evaluation
 
-* Performance of the models can be evaluated via calculating the area under the ROC curve scores on the validation and test portions of the dataset. Cross-validation tests should also be run to ensure unbiased results. 
+ Performance of the models can be evaluated via calculating the area under the ROC curve scores on the validation and test portions of the dataset. Cross-validation tests should also be run to ensure unbiased results. 
 
 
 ## Citations
 
-* Kaggle Dataset: Walter Reade and Ashley Chow. Binary Classification with a Bank Churn Dataset . ([https://kaggle.com/competitions/playground-series-s4e1](https://kaggle.com/competitions/playground-series-s4e1)), 2024. Kaggle.
+ Kaggle Dataset: Walter Reade and Ashley Chow. Binary Classification with a Bank Churn Dataset . ([https://kaggle.com/competitions/playground-series-s4e1](https://kaggle.com/competitions/playground-series-s4e1)), 2024. Kaggle.
 
 
 
