@@ -52,7 +52,8 @@ Out of all of the numerical features, age seem to be a good separator for the si
 
 ### Problem Formulation
    
-  * Dataset of features like balance, creditscore, tenure and so on are examined. Then, the models are to predict churn rates (0 for stay, 1 for churn) for each customer. For the training dataset, the models were evaluated using the final column excluded when fitting for training titled "Exited" which gives the actual churn rates for each customers. For the test dataset, no such "Exited" column were provided and the models are to be fitted and predict as close as possible to the actual churn rate for the challenge.
+Dataset of features like balance, creditscore, tenure and so on are examined. Then, the models are to predict churn rates (0 for stay, 1 for churn) for each customer. For the training dataset, the models were evaluated using the final column excluded when fitting for training titled "Exited" which gives the actual churn rates for each customers. For the test dataset, no such "Exited" column were provided and the models are to be fitted and predict as close as possible to the actual churn rate for the challenge.
+
   * Models
     * Decision Tree: chosen for its simplicity and history of giving good scores.
     * Histogram-based Gradient Boosting: chosen for its robustness in providing fast and accurate results in previously worked-on larger datasets.  
