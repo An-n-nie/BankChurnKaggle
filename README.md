@@ -76,12 +76,15 @@ All of the machine learning algorthms above were imported into a notebook and fi
 | K-Nearest Neighbors  | 0.844127 | 0.835958 | 0.668629  | 0.509036 | 0.819269  |
 
 </div>
+
   
  However, for the purpose of this challenge, the main evaluation score is based on the area under the ROC curve. ROC curves and its area score was calculated for all models used for the training dataset at 60% split. Cross-validation tests were run to ensure that the scores were not biased or happened by chance.
+
   
   ![](Pictures/ML_AUC.png)
  
  Histgoram-based Gradient Boosting seemed to perform the best. The model was then chosen to undergo additional tunings before applying it to an 80-20 train test split of the training dataset. After running cross-validation tests, it seemed an increase in data points slightly decreased the score of the model. However, this score average would still be among the highest out of all models tested if rounded to the nearest one place.
+
   
   ![](Pictures/HGB_AUC.png)
 
