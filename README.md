@@ -37,22 +37,26 @@ The goal of the Kaggle challenge was to use a tabular dataset containing various
 
 #### Data Visualization
 * There were some class imbalance found between the signal and background variables.
-* Out of all of the numerical features, age seem to be a good separator for the signal and background rates. 
+
+  ![](Pictures/Imbalance.png)
+  
+* Out of all of the numerical features, age seem to be a good separator for the signal and background rates.
+
+  ![](Pictures/Features.png)
 
 
 ### Problem Formulation
-
-* Define:
-  * Input / Output
+   
+  * Dataset of features like balance, creditscore, tenure and so on are examined. Then, the models are to predict churn rates (0 for stay, 1 for churn) for each customer. For the training dataset, the models were evaluated using the final column excluded when fitting for training titled "Exited" which gives the actual churn rates for each customers. For the test dataset, no such "Exited" column were provided and the models are to be fitted and predict as close as possible to the actual churn rate for the challenge.
   * Models
-    * Decision Tree:
-    * Histogram-based Gradient Boosting:
-    * Random Forest:
-    * Logistic Regression:
-    * K-Nearest Neighbors:
+    * Decision Tree: chosen for its simplicity and history of giving good scores.
+    * Histogram-based Gradient Boosting: chosen for its robustness in providing fast and accurate results in previously worked-on larger datasets.  
+    * Random Forest: chosen because it combines many trees and might be better than decision tree. 
+    * Logistic Regression: chosen because it's a good baseline model to handle binary problems. 
+    * K-Nearest Neighbors: chosen as it handles binary problem in a different way compared to the rest. 
   * Parameters:
-    * All models were initiually tuned with parameters that would most likely fit in with the data set.
-    * 
+    * All models were initiually tuned with parameters that would most likely fit in with the data set. 
+    * HGB was fruther tuned using jchkhkvhhfdujrhnvfi
 
 ### Training
 
@@ -61,10 +65,14 @@ The goal of the Kaggle challenge was to use a tabular dataset containing various
 ### Performance Comparison
 
 * Models were evaluated using some standard metrics like the accuracy score, F1 score, and recall score.
+  ![](Pictures/Metrics.png)
   
-* However, for the purpose of this challenge, the main evaluation score is based on the area under the ROC curve. ROC curves and its area score was calculated for all models used for the training dataset at 60% split. Cross-validation tests were run to ensure that the scores were not biased or happened by chance. 
+* However, for the purpose of this challenge, the main evaluation score is based on the area under the ROC curve. ROC curves and its area score was calculated for all models used for the training dataset at 60% split. Cross-validation tests were run to ensure that the scores were not biased or happened by chance.
+  
   ![](ML_AUC.png)
+ 
 * Histgoram-based Gradient Boosting seemed to perform the best. The model was then chosen to undergo additional tunings before applying it to an 80-20 train test split of the training dataset. After running cross-validation tests, it seemed an increase in data points slightly decreased the score of the model. However, this score average would still be among the highest out of all models tested if rounded to the nearest one place.
+  
   ![](HGB_AUC.png)
 
 
@@ -82,17 +90,18 @@ The goal of the Kaggle challenge was to use a tabular dataset containing various
 
 ### Overview of files in repository
 
-* The repository should be read from Data Load n Initial Look, Data Viz, Data Clean N Prep, ML, and Bank Churn Final to obtain a good understanding of the workflow. 
+* The files in this repository in Kaggle_Bank folder should be read from Data Load n Initial Look, Data Viz, Data Clean N Prep, ML, and Bank Churn Final to obtain a good understanding of the workflow. 
   * Data_Load_N_Initial_Look.ipynb: Downloads the bank churn dataset and explores its contents quickly.
   * Data_Viz.ipynb: Creates various visualizations of the data
   * Data_Clean_N_Prep.ipynb: Conducts preprocessing processes like deleting duplcations, onehot encoding variables as well as scaling numerical features.
   * ML.ipynb: Contains functions that build various machine learning models and evaluate their performances.
   * Bank_Churn_Final.ipynb: Contains all the preprocessing and machine learning processes necessary to obtain results and convert them into the proper submission format.
-* Explanations of other files seen: 
+* Other files seen: 
   * submission.csv: Submission file created after all of the work is done. 
   * sample_submission.csv: A sample of the submission format provided by the challenge.
   * train.csv: Train dataset provided by the challenge.
-  * test.csv: Test dataset provided by the challenge. 
+  * test.csv: Test dataset provided by the challenge.
+* Pictures folder contains all images displayed throughout this readme file. 
 
 
 ### Software Setup
@@ -102,7 +111,7 @@ The goal of the Kaggle challenge was to use a tabular dataset containing various
 
 ### Data
 
-* Data for this challenge can be downloaded through the ["Kaggle Challenge website"](https://www.kaggle.com/competitions/playground-series-s4e1/overview). Most convenitently, the API for Kaggle can be downloaded into Terminal which should then be relocated to the correct .kaggle folder. Then, use kaggle command to download datasets from the kaggle websites into jupyter notebook or any preferred environment. 
+* Data for this challenge can be downloaded through the [Kaggle Challenge website](https://www.kaggle.com/competitions/playground-series-s4e1/overview). Most convenitently, the API for Kaggle can be downloaded into Terminal which should then be relocated to the correct .kaggle folder. Then, use kaggle command to download datasets from the kaggle websites into jupyter notebook or any preferred environment. 
 
 ### Training
 
