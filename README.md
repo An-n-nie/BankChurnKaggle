@@ -65,7 +65,14 @@ The goal of the Kaggle challenge was to use a tabular dataset containing various
 ### Performance Comparison
 
 * Models were evaluated using some standard metrics like the accuracy score, F1 score, and recall score.
-  ![](Pictures/results_table.html)
+  
+  | Classifier           | Accuracy |    F1    | Precision |  Recall  | AUC Score |
+|----------------------|----------|----------|-----------|----------|-----------|
+| LogReg               | 0.752835 | 0.771438 | 0.4458    | 0.734278 | 0.818223  |
+| RandomForest         | 0.817082 | 0.827643 | 0.544846  | 0.776348 | 0.883747  |
+| HGB                  | 0.813565 | 0.824983 | 0.537952  | 0.786902 | 0.887020  |
+| Decision Tree        | 0.813838 | 0.824218 | 0.539990  | 0.758421 | 0.871243  |
+| K-Nearest Neighbors  | 0.844127 | 0.835958 | 0.668629  | 0.509036 | 0.819269  |
   
 * However, for the purpose of this challenge, the main evaluation score is based on the area under the ROC curve. ROC curves and its area score was calculated for all models used for the training dataset at 60% split. Cross-validation tests were run to ensure that the scores were not biased or happened by chance.
   
