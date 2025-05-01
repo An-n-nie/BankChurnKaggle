@@ -146,7 +146,7 @@ Pictures folder contains all images displayed throughout this readme file.
 
  Different models are initiated, fitted and trained on the train portion (60% of total data points) of train.csv dataset.
 
-#### Performance Evaluation
+### Performance Evaluation
 
  Performance of the models can be evaluated via calculating the area under the ROC curve scores on the validation and test portions of the dataset. Cross-validation tests should also be run to ensure unbiased results. 
 
