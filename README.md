@@ -46,12 +46,23 @@ A bar chart was created to visualize the distribution of the target variable. He
   ![](Pictures/Imbalance.png)
   
 </div>
-  
-After applying standard scaling, histograms of all features were plotted to compare their distributions across classes. Among the numerical features, **Age** emerged as a particularly strong separator between customers who stayed and those who churned.
+
+More charts were created to visualize the class imbalance's effects on categorical values - Geography and Gender.
 
 <div align='center'>
   
-  ![](Pictures/Features.png)
+  ![](Pictures/Geography.png)
+  
+  ![](Pictures/Gender.png)
+  
+</div>
+
+  
+After applying standard scaling, histograms of all features were plotted to compare their distributions across classes. Among the numerical features that were scaled, **Age** emerged as a particularly strong separator between customers who stayed and those who churned.
+
+<div align='center'>
+  
+  ![](Pictures/Numerical.png)
 
 </div>
 
@@ -134,12 +145,11 @@ Within the `Kaggle_Bank` folder, the following notebooks guide the workflow in c
   * `Data_Clean_N_Prep.ipynb`: Conducts preprocessing processes like deleting duplcations, onehot encoding variables as well as scaling numerical features.
   * `ML.ipynb`: Contains functions that build various machine learning models and evaluate their performances.
   * `Bank_Churn_Final.ipynb`: Contains all the preprocessing and machine learning processes necessary to obtain results and convert them into the proper submission format.
-* `CSV_Files` folder include:
-  - `playground-series-s4e1.zip`: zipped file containing all csv files provided by the challenge
-  - `submission.csv`: Submission file created after all of the work is done. 
-  - `sample_submission.csv`: A sample of the submission format provided by the challenge.
-  - `train.csv`: Train dataset provided by the challenge.
-  - `test.csv`: Test dataset provided by the challenge.
+  * `playground-series-s4e1.zip`: zipped file containing all csv files provided by the challenge
+  * `submission.csv`: Submission file created after all of the work is done. 
+  * `sample_submission.csv`: A sample of the submission format provided by the challenge.
+  * `train.csv`: Train dataset provided by the challenge.
+  * `test.csv`: Test dataset provided by the challenge.
 
 The `Pictures` folder contains all images displayed throughout this README file. 
 
