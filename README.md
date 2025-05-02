@@ -6,7 +6,7 @@ This repository explores the use of Histogram-based Gradient Boosting to predict
 
 The goal of the Kaggle challenge was to use a tabular dataset containing various banking information to predict whether a customer retains their account or chooses to close it (churn). This repository considers the task at hand a binary classification problem and evaluates the performance of several machine learning models. Then, the model with the best performance is further fine tuned before being applied to the final dataset. In this case, Histogram-based Gradient Boosting was the best performing model, achieving an average area under the ROC curve score of 88.8%. The last-updated score on the Kaggle challenge's leader board was 90.6%.
 
-## Summary of Workdone
+## Summary of Work Done
 
 ### Data
 
@@ -79,7 +79,7 @@ For the training dataset, the models were evaluated using the `Exited` column wh
     * **Logistic Regression**: chosen because it's a simple yet effective baseline model for binary classification.
     * **K-Nearest Neighbors**: selected for a different approach to predicting based on local similarity rather than model learning.
   * **Parameters**:
-    * All models were initiually configured with reasonable defaults (e.g., setting `random state` and `class weight='balanced'` where applicable).
+    * All models were initially configured with reasonable defaults (e.g., setting `random state` and `class weight='balanced'` where applicable).
     * Histogram-based Gradient Boosting was further fine-tuned using Scikit learn's `RandomizedSearchCV` to find the optimal parameters for the model.
     * Full parameters settings and tuning details can be found in `ML.ipynb` notebook.
 
@@ -126,11 +126,11 @@ All of the machine learning algorithms mentioned above were implemented and trai
 
 ### Conclusions
 
-Among the top-performing models, Histogram-based Gradient Boosting had a slight edge over Decision Tree and Random Forest in this dataset. However, all three performed in similar ranges for this problem. Therefore, for this dataset, using simple models like Decision Tree can stil offer strong baseline performance without withholding too much potentials. 
+Among the top-performing models, Histogram-based Gradient Boosting had a slight edge over Decision Tree and Random Forest in this dataset. However, all three performed in similar ranges for this problem. Therefore, for this dataset, using simple models like Decision Tree can still offer strong baseline performance without withholding too much potential.
 
 ### Future Work
 
-Future improvements could include testing other boosting algorithms such as XGBoost, LightGBM, and CatBoost — all of which are known for their high performance in structured data challenges. These models have shown strong results in similar Kaggle competitions and could potentially push AUC scores even higher. For this particular challenge, one of the models that the top scorers used was LightGMBoost.
+Future improvements could include testing other boosting algorithms such as XGBoost, LightGBM, and CatBoost — all of which are known for their high performance in structured data challenges. These models have shown strong results in similar Kaggle competitions and could potentially push AUC scores even higher. For this particular challenge, one of the models that the top scorers used was LightGBM.  
 
 
 ## How to reproduce results
@@ -141,11 +141,11 @@ Reproducing the results in this repository is straightforward by following the w
 
 Within the `Kaggle_Bank` folder, the following notebooks guide the workflow in correct order:
   * `Data_Load_N_Initial_Look.ipynb`: Downloads the bank churn dataset and explores its contents quickly.
-  * `Data_Visualization.ipynb`: Creates various visualizations of the data
-  * `Data_Clean_N_Prep.ipynb`: Conducts preprocessing processes like deleting duplications, onehot encoding variables as well as scaling numerical features.
+  * `Data_Visualization.ipynb`: Creates various visualizations of the data, but all visualizations done are not limited to just this notebook.
+  * `Data_Clean_N_Prep.ipynb`: Conducts preprocessing processes like deleting duplicates, one-hot encoding variables as well as scaling numerical features.
   * `ML.ipynb`: Contains functions that build various machine learning models and evaluate their performances.
   * `Bank_Churn_Final.ipynb`: Contains all the preprocessing and machine learning processes necessary to obtain results and convert them into the proper submission format.
-  * `playground-series-s4e1.zip`: zipped file containing all csv files provided by the challenge
+  * `playground-series-s4e1.zip`: zipped file containing all csv files provided by the challenge.
   * `submission.csv`: Submission file created after all of the work is done. 
   * `sample_submission.csv`: A sample of the submission format provided by the challenge.
   * `train.csv`: Train dataset provided by the challenge.
