@@ -62,7 +62,7 @@ After applying standard scaling, histograms of numerical features were plotted t
 
 <div align='center'>
   
-  ![](Pictures/Numerical_Distribution.png)
+  ![](Pictures/Numerical.png)
 
 </div>
 
