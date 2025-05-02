@@ -4,7 +4,7 @@ This repository explores the use of Histogram-based Gradient Boosting to predict
 
 ## Overview
 
-The goal of the Kaggle challenge was to use a tabular dataset containing various banking information to predict whether a customer etains thier account or chooses to close it (churn). This repository considers the task at hand a binary classification problem and evaluates the performance of several machine learning models. Then, the model with the best performance is further fine tuned before being applied to the final dataset. In this case, Histogram-based Gradient Boosting was the best performing model, achieving an average area under the ROC curve score of 88.75%. The last-updated score on the Kaggle challenge's leader board was 90.59%.
+The goal of the Kaggle challenge was to use a tabular dataset containing various banking information to predict whether a customer retains their account or chooses to close it (churn). This repository considers the task at hand a binary classification problem and evaluates the performance of several machine learning models. Then, the model with the best performance is further fine tuned before being applied to the final dataset. In this case, Histogram-based Gradient Boosting was the best performing model, achieving an average area under the ROC curve score of 88.75%. The last-updated score on the Kaggle challenge's leader board was 90.59%.
 
 ## Summary of Workdone
 
