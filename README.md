@@ -4,7 +4,7 @@ This repository explores the use of Histogram-based Gradient Boosting to predict
 
 ## Overview
 
-The goal of the Kaggle challenge was to use a tabular dataset containing various banking information to predict whether a customer retains their account or chooses to close it (churn). This repository considers the task at hand a binary classification problem and evaluates the performance of several machine learning models. Then, the model with the best performance is further fine tuned before being applied to the final dataset. In this case, Histogram-based Gradient Boosting was the best performing model, achieving an average area under the ROC curve score of 88.75%. The last-updated score on the Kaggle challenge's leader board was 90.59%.
+The goal of the Kaggle challenge was to use a tabular dataset containing various banking information to predict whether a customer retains their account or chooses to close it (churn). This repository considers the task at hand a binary classification problem and evaluates the performance of several machine learning models. Then, the model with the best performance is further fine tuned before being applied to the final dataset. In this case, Histogram-based Gradient Boosting was the best performing model, achieving an average area under the ROC curve score of 88.8%. The last-updated score on the Kaggle challenge's leader board was 90.6%.
 
 ## Summary of Workdone
 
@@ -47,7 +47,7 @@ A bar chart was created to visualize the distribution of the target variable. He
   
 </div>
 
-More charts were created to visualize the class imbalance's effects on categorical values - Geography and Gender.
+Additional charts were created to explore how this class imbalance manifests across categorical features — namely **Geography** and **Gender**.
 
 <div align='center'>
   
@@ -58,7 +58,7 @@ More charts were created to visualize the class imbalance's effects on categoric
 </div>
 
   
-After applying standard scaling, histograms of all features were plotted to compare their distributions across classes. Among the numerical features that were scaled, **Age** emerged as a particularly strong separator between customers who stayed and those who churned.
+After applying standard scaling, histograms of numerical features were plotted to compare their distributions across classes. Among these, **Age** emerged as a particularly strong separator between customers who stayed and those who churned.
 
 <div align='center'>
   
@@ -126,7 +126,7 @@ All of the machine learning algorithms mentioned above were implemented and trai
 
 ### Conclusions
 
-Among the top-performing models, Histogram-based Gradient Boosting had a slight edge over Decision Tree and Random Forest in this dataset. However, all three performed in similar ranges for this problem. Therefore, simple models like Decision Tree can stil offer strong baseline performance without withholding too much potentials. 
+Among the top-performing models, Histogram-based Gradient Boosting had a slight edge over Decision Tree and Random Forest in this dataset. However, all three performed in similar ranges for this problem. Therefore, for this dataset, using simple models like Decision Tree can stil offer strong baseline performance without withholding too much potentials. 
 
 ### Future Work
 
@@ -142,7 +142,7 @@ Reproducing the results in this repository is straightforward by following the w
 Within the `Kaggle_Bank` folder, the following notebooks guide the workflow in correct order:
   * `Data_Load_N_Initial_Look.ipynb`: Downloads the bank churn dataset and explores its contents quickly.
   * `Data_Visualization.ipynb`: Creates various visualizations of the data
-  * `Data_Clean_N_Prep.ipynb`: Conducts preprocessing processes like deleting duplcations, onehot encoding variables as well as scaling numerical features.
+  * `Data_Clean_N_Prep.ipynb`: Conducts preprocessing processes like deleting duplications, onehot encoding variables as well as scaling numerical features.
   * `ML.ipynb`: Contains functions that build various machine learning models and evaluate their performances.
   * `Bank_Churn_Final.ipynb`: Contains all the preprocessing and machine learning processes necessary to obtain results and convert them into the proper submission format.
   * `playground-series-s4e1.zip`: zipped file containing all csv files provided by the challenge
