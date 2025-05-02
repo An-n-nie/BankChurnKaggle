@@ -58,11 +58,11 @@ Additional charts were created to explore how this class imbalance manifests acr
 </div>
 
   
-After applying standard scaling, histograms of numerical features were plotted to compare their distributions across classes. Among these, **Age** emerged as a particularly strong separator between customers who stayed and those who churned.
+After applying standard scaling, histograms of numerical features were plotted to compare their distributions across classes. Among these, **Age** emerged as a particularly strong separator between customers who stayed and those who churned, while most of the remaining features showed less distinct class separation.
 
 <div align='center'>
   
-  ![](Pictures/Numerical.png)
+  ![](Pictures/Numerical_Distribution.png)
 
 </div>
 
