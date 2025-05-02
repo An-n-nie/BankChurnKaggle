@@ -130,7 +130,7 @@ Reproducing the results in this repository is straightforward by following the w
 
 Within the `Kaggle_Bank` folder, the following notebooks guide the workflow in correct order:
   * `Data_Load_N_Initial_Look.ipynb`: Downloads the bank churn dataset and explores its contents quickly.
-  * `Data_Viz.ipynb`: Creates various visualizations of the data
+  * `Data_Visualization.ipynb`: Creates various visualizations of the data
   * `Data_Clean_N_Prep.ipynb`: Conducts preprocessing processes like deleting duplcations, onehot encoding variables as well as scaling numerical features.
   * `ML.ipynb`: Contains functions that build various machine learning models and evaluate their performances.
   * `Bank_Churn_Final.ipynb`: Contains all the preprocessing and machine learning processes necessary to obtain results and convert them into the proper submission format.
