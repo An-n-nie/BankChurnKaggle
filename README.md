@@ -151,7 +151,7 @@ Ensure the following libraries are installed:
 
 ### Data
 
-Data for this challenge can be downloaded directly through the [Kaggle Challenge website](https://www.kaggle.com/competitions/playground-series-s4e1/overview). Or it can be done through the Kaggle CLI. Simply download the API for Kaggle via running `pip install kaggle` into Terminal. Then, make sure to move `kaggle.json` API token into the correct location (`/.kaggle/kaggle.json`). Then, use the command `kaggle competitions download -c playground-series-s4e1` to download this dataset. 
+Data for this challenge can be downloaded directly through the [Kaggle Challenge website](https://www.kaggle.com/competitions/playground-series-s4e1/overview). Or it can be done through the Kaggle CLI. Simply download the API for Kaggle via running `pip install kaggle` into Terminal. Then, make sure to move the `kaggle.json` API token to the correct location (`/.kaggle/kaggle.json`). Then, use the command `kaggle competitions download -c playground-series-s4e1` to download this dataset. 
 
 ### Training
 
