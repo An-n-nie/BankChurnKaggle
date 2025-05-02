@@ -18,7 +18,7 @@ The goal of the Kaggle challenge was to use a tabular dataset containing various
 - **Train**: 165,034 rows × 14 columns (including the "Exited" target)  
 - **Test**: 110,023 rows × 13 columns (without the target)  
 
-**Split**:  
+**Split** (done via scikit-learn's `train_test_split`:  
 - 60% training  
 - 20% validation  
 - 20% testing
