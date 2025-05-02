@@ -24,10 +24,10 @@ The goal of the Kaggle challenge was to use a tabular dataset containing various
 - 20% testing
 
 
-#### Preprocessing / Clean up
+### Preprocessing / Clean up
 
 **Null values**: None found  
-**Duplicates**: Identified after removing ID and CustomerID columns. Rows with identical surnames, balances, and estimated salaries were assumed to be duplicates and removed.  
+**Duplicates**: Identified after removing `ID` and `CustomerID` columns. Rows with identical surnames, balances, and estimated salaries were assumed to be duplicates and removed.  
 
 **Categorical columns**:  
 - `Geography` and `Gender` encoded via `OneHotEncoder` from scikit-learn.  
@@ -38,7 +38,7 @@ The goal of the Kaggle challenge was to use a tabular dataset containing various
 - Remaining numerical columns (e.g., `HasCrCard`, `IsActiveMember`) were already in binary format and left unchanged.
 
 
-#### Data Visualization
+### Data Visualization
 A bar chart was created to visualize the distribution of the target variable. Here, an imbalance was observed with significantly more customers staying than churning.
 
 <div align='center'>
@@ -58,23 +58,23 @@ After applying standard scaling, histograms of all features were plotted to comp
 
 ### Problem Formulation
    
-The dataset contains customer features such as balance, creditscore, tenure and the likes. The goal is to predict churn rates for each customer, where 0 indicates the customer stayed and 1 indicates they churned. 
-For the training dataset, the models were evaluated using the "Exited" column which gives the actual churn rates for each customers. In contrast, the test dataset does not include this column - the models must infer churn probabilities as part of the challenge submission.
+The dataset contains customer features such as `Balance`, `CreditScore`, `Tenure` and so on. The goal is to predict churn rates for each customer, where 0 indicates the customer stayed and 1 indicates they churned. 
+For the training dataset, the models were evaluated using the `Exited` column which gives the actual churn rates for each customers. In contrast, the test dataset does not include this column - the models must infer churn probabilities as part of the challenge submission.
 
-  * Models
-    * Decision Tree: chosen for its simplicity and history of giving good scores.
-    * Histogram-based Gradient Boosting: selected for its robustness in providing fast and accurate results on large tabular datasets.  
-    * Random Forest: used to leverage the power of multiple decision trees to attain potentially better scores. 
-    * Logistic Regression: chosen because it's a simple yet effective baseline model for binary classification.
-    * K-Nearest Neighbors: selected for a different approach to predicting based on local similarity rather than model learning.
-  * Parameters:
-    * All models were initiually configured with reasonable defaults (e.g. setting random state and class weight= 'balanced' where applicable).
-    * Histogram-based Gradient Boosting was further fine-tuned using Scikit learn's Randomized Searched CV to find the optimal parameters for the model.
-    * Full parameters settings and tuning details can be found in ML.ipynb notebook.
+  * **Models**
+    * **Decision Tree**: chosen for its simplicity and history of giving good scores.
+    * **Histogram-based Gradient Boosting**: selected for its robustness in providing fast and accurate results on large tabular datasets.  
+    * **Random Forest**: used to leverage the power of multiple decision trees to attain potentially better scores. 
+    * **Logistic Regression**: chosen because it's a simple yet effective baseline model for binary classification.
+    * **K-Nearest Neighbors**: selected for a different approach to predicting based on local similarity rather than model learning.
+  * **Parameters**:
+    * All models were initiually configured with reasonable defaults (e.g., setting `random state` and `class weight='balanced'` where applicable).
+    * Histogram-based Gradient Boosting was further fine-tuned using Scikit learn's `RandomizedSearchCV` to find the optimal parameters for the model.
+    * Full parameters settings and tuning details can be found in `ML.ipynb` notebook.
 
 ### Training
 
-All of the machine learning algorithms mentioned above were implemented and trained in ML.ipynb notebook using the training dataset. Training times were minimal — under 1 minute for all models — due to the relatively small dataset size and the absence of deep learning computations.
+All of the machine learning algorithms mentioned above were implemented and trained in `ML.ipynb` notebook using the training dataset. Training times were minimal — under 1 minute for all models — due to the relatively small dataset size and the absence of deep learning computations.
 
 ### Performance Comparison
 
@@ -124,41 +124,45 @@ Future improvements could include testing other boosting algorithms such as XGBo
 
 ## How to reproduce results
 
- Reproducing results obtained in this repository can be done simply by following the workflow indicated below. This is preferably done in a Jupyter Notebook environment on a MacOS with python, scikit learn, and potentially the Kaggle API installed into Terminal. Other software setups and steps to train and evaluate model performances are further expanded in the notebooks included in this repository.
+Reproducing the results in this repository is straightforward by following the workflow described below. The recommended setup is a Jupyter Notebook environment running on macOS, with Python, Scikit-learn, and optionally the Kaggle API installed via Terminal. Additional details, including training and evaluation steps, are provided in the included notebooks.
 
 ### Overview of files in repository
 
-The files in this repository in Kaggle_Bank folder should be read from Data Load n Initial Look, Data Viz, Data Clean N Prep, ML, and Bank Churn Final to obtain a good understanding of the workflow. 
-  * Data_Load_N_Initial_Look.ipynb: Downloads the bank churn dataset and explores its contents quickly.
-  * Data_Viz.ipynb: Creates various visualizations of the data
-  * Data_Clean_N_Prep.ipynb: Conducts preprocessing processes like deleting duplcations, onehot encoding variables as well as scaling numerical features.
-  * ML.ipynb: Contains functions that build various machine learning models and evaluate their performances.
-  * Bank_Churn_Final.ipynb: Contains all the preprocessing and machine learning processes necessary to obtain results and convert them into the proper submission format.
-* Other files seen: 
-  * submission.csv: Submission file created after all of the work is done. 
-  * sample_submission.csv: A sample of the submission format provided by the challenge.
-  * train.csv: Train dataset provided by the challenge.
-  * test.csv: Test dataset provided by the challenge.
+Within the `Kaggle_Bank` folder, the following notebooks guide the workflow in correct order:
+  * `Data_Load_N_Initial_Look.ipynb`: Downloads the bank churn dataset and explores its contents quickly.
+  * `Data_Viz.ipynb`: Creates various visualizations of the data
+  * `Data_Clean_N_Prep.ipynb`: Conducts preprocessing processes like deleting duplcations, onehot encoding variables as well as scaling numerical features.
+  * `ML.ipynb`: Contains functions that build various machine learning models and evaluate their performances.
+  * `Bank_Churn_Final.ipynb`: Contains all the preprocessing and machine learning processes necessary to obtain results and convert them into the proper submission format.
+* Other files include:
+  * `submission.csv`: Submission file created after all of the work is done. 
+  * `sample_submission.csv`: A sample of the submission format provided by the challenge.
+  * `train.csv`: Train dataset provided by the challenge.
+  * `test.csv`: Test dataset provided by the challenge.
 
-Pictures folder contains all images displayed throughout this readme file. 
+`Pictures` folder contains all images displayed throughout this README file. 
 
 
 ### Software Setup
-* Libraries like pandas, matplotlib, numpy, math, and scipy are needed and can be called using import. 
-* Scikit learn needs to be downloaded into terminal using pip install before importing it into notebook.
+Ensure the following libraries are installed:
+* `pandas`, `numpy`, `matplotlib`, `math`, `scipy`
+* `scikit-learn`: install via `pip install scikit-learn`
 
 
 ### Data
 
- Data for this challenge can be downloaded through the [Kaggle Challenge website](https://www.kaggle.com/competitions/playground-series-s4e1/overview). Most convenitently, the API for Kaggle can be downloaded into Terminal which should then be relocated to the correct .kaggle folder. Then, use kaggle command to download datasets from the kaggle websites into jupyter notebook or any preferred environment. 
+Data for this challenge can be downloaded directly through the [Kaggle Challenge website](https://www.kaggle.com/competitions/playground-series-s4e1/overview). Or it can be done through the Kaggle CLI. Simply download the API for Kaggle via running `pip install kaggle` into Terminal. Then, make sure to move `kaggle.json` API token into the correct location (`/.kaggle/kaggle.json`). Then, use the command `kaggle competitions download -c playground-series-s4e1` to download this dataset. 
 
 ### Training
 
- Different models are initiated, fitted and trained on the train portion (60% of total data points) of train.csv dataset.
+The training dataset (`train.csv`) is split into Train (60%), Validation (20%), and Test (20%) sets. Various models are then trained using the training portion and evaluated on the validation and test sets.
+
 
 ### Performance Evaluation
 
- Performance of the models can be evaluated via calculating the area under the ROC curve scores on the validation and test portions of the dataset. Cross-validation tests should also be run to ensure unbiased results. 
+Model performance is assessed using the **AUC** score, alongside other metrics like accuracy, precision, recall, and F1 score. Cross-validation is also applied to verify consistency.
+
+
 
 
 ## Citations
