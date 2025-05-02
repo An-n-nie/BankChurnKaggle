@@ -4,7 +4,7 @@ This repository explores the use of Histogram-based Gradient Boosting to predict
 
 ## Overview
 
-The goal of the Kaggle challenge was to use a tabular dataset containing various banking information to predict whether a customer retains their account or chooses to close it (churn). This repository considers the task at hand a binary classification problem and evaluates the performance of several machine learning models. Then, the model with the best performance is further fine tuned before being applied to the final dataset. In this case, Histogram-based Gradient Boosting was the best performing model, achieving an average area under the ROC curve score of 88.8%. The last-updated score on the Kaggle challenge's leader board was 90.6%.
+The goal of the Kaggle challenge was to use a tabular dataset containing various banking information to predict whether a customer retains their account or chooses to close it (churn). This repository considers the task at hand a binary classification problem and evaluates the performance of several machine learning models. Then, the model with the best performance is further fine tuned before being applied to the final dataset. In this case, Histogram-based Gradient Boosting was the best performing model, achieving an average area under the ROC curve score of 89% (0.8875). The last-updated score on the Kaggle challenge's leader board was 91% (0.9059).
 
 ## Summary of Work Done
 
@@ -96,11 +96,11 @@ All of the machine learning algorithms mentioned above were implemented and trai
 
 | Classifier           | Accuracy |    F1    | Precision |  Recall  | AUC Score |
 |----------------------|----------|----------|-----------|----------|-----------|
-| LogReg               | 0.752835 | 0.771438 | 0.4458    | 0.734278 | 0.818223  |
-| RandomForest         | 0.817082 | 0.827643 | 0.544846  | 0.776348 | 0.883747  |
-| HGB                  | 0.813565 | 0.824983 | 0.537952  | 0.786902 | 0.887020  |
-| Decision Tree        | 0.813838 | 0.824218 | 0.539990  | 0.758421 | 0.871243  |
-| K-Nearest Neighbors  | 0.844127 | 0.835958 | 0.668629  | 0.509036 | 0.819269  |
+| LogReg               | 0.7528 | 0.7714 | 0.4458    | 0.7342 | 0.8182  |
+| RandomForest         | 0.8170 | 0.8276 | 0.5448  | 0.7763 | 0.8837  |
+| HGB                  | 0.8135 | 0.8249 | 0.5379  | 0.7869 | 0.8870  |
+| Decision Tree        | 0.8138 | 0.8242 | 0.5399  | 0.7584 | 0.8712  |
+| K-Nearest Neighbors  | 0.8441 | 0.8359 | 0.6686  | 0.5090 | 0.8192  |
 
 </div>
 
