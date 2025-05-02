@@ -1,39 +1,45 @@
 # Bank Churn Kaggle Challenge
 
-This repository holds an attempt to apply Histogram-based Gradient Boosting to predict churn rates at a bank provided through the [Binary Classification with a Bank Churn Dataset](https://www.kaggle.com/competitions/playground-series-s4e1/overview) Kaggle challenge. 
+This repository explores the use of Histogram-based Gradient Boosting to predict customer churn in a bank as part of the [Binary Classification with a Bank Churn Dataset](https://www.kaggle.com/competitions/playground-series-s4e1/overview) Kaggle challenge. 
 
 ## Overview
 
-The goal of the Kaggle challenge was to use a tabular dataset containing various banking information to predict whether a customer keeps their account or churn it. This repository considers the task at hand a binary classification problem and uses different machine learning models to sample their performances. Then, the model with the best performance will undergo some model tuning before proceeding to apply it to the final dataset. In this case, Histogram-based Gradient Boosting was the best performing model, achieving an average area under the ROC curve score of 88.75%. The last-updated score on the Kaggle challenge's leader board was 90.59%.
+The goal of the Kaggle challenge was to use a tabular dataset containing various banking information to predict whether a customer etains thier account or chooses to close it (churn). This repository considers the task at hand a binary classification problem and evaluates the performance of several machine learning models. Then, the model with the best performance is further fine tuned before being applied to the final dataset. In this case, Histogram-based Gradient Boosting was the best performing model, achieving an average area under the ROC curve score of 88.75%. The last-updated score on the Kaggle challenge's leader board was 90.59%.
 
 ## Summary of Workdone
 
 ### Data
 
- * Type: Tabular
-   * Input: CSV files (train, test) of different bank-related features (tenure, credit score, balance, etc.)
-   * Output: signal/background rates
- * Size:
-   * Train: 165034 rows, 14 columns (last column - "Exited" rates for signal/background)
-   * Test: 110023 rows, 13 columns
- * Instances: Train.csv file is split into
-   * 60% Train
-   * 20% Validation
-   * 20% Test
+**Type**: Tabular data (CSV format)  
+- **Input**: Banking features such as tenure, credit score, balance, etc.  
+- **Output**: Binary target column ("Exited"), where 0 = stayed, 1 = churned  
+
+**Size**:  
+- **Train**: 165,034 rows × 14 columns (including the "Exited" target)  
+- **Test**: 110,023 rows × 13 columns (without the target)  
+
+**Split**:  
+- 60% training  
+- 20% validation  
+- 20% testing
 
 
 #### Preprocessing / Clean up
 
-* Null: No null values found
-* Duplicates: some were found after removing id and customer id columns, revealing customers with same surnames and same account balances and estimated salaries. These were assumed to be duplicates and removed. 
-* Categorical columns: Geography and Gender columns were onehot encoded using OneHotEncoder from Scikitlearn.
-* Numerical columns:
-  * Credit score, balance, age, tenure, estimated salary and number of products columns were scaled using StandardScaler from Scikitlearn. (both MinMaxScaler and StandardScaler were used and both gave same results.)
-  * The rest of the numerical columns were already in good range (i.e. binary)
+**Null values**: None found  
+**Duplicates**: Identified after removing ID and CustomerID columns. Rows with identical surnames, balances, and estimated salaries were assumed to be duplicates and removed.  
+
+**Categorical columns**:  
+- `Geography` and `Gender` encoded via `OneHotEncoder` from scikit-learn.  
+
+**Numerical columns**:  
+- `CreditScore`, `Balance`, `Age`, `Tenure`, `EstimatedSalary`, and `NumOfProducts` scaled using `StandardScaler`.  
+  - (Note: Both `MinMaxScaler` and `StandardScaler` were tested and yielded comparable results.)  
+- Remaining numerical columns (e.g., `HasCrCard`, `IsActiveMember`) were already in binary format and left unchanged.
 
 
 #### Data Visualization
-There were some class imbalance found between the signal and background variables.
+A bar chart was created to visualize the distribution of the target variable. Here, an imbalance was observed with significantly more customers staying than churning.
 
 <div align='center'>
   
@@ -41,7 +47,7 @@ There were some class imbalance found between the signal and background variable
   
 </div>
   
-Out of all of the numerical features, age seem to be a good separator for the signal and background rates.
+After applying standard scaling, histograms of all features were plotted to compare their distributions across classes. Among the numerical features, **Age** emerged as a particularly strong separator between customers who stayed and those who churned.
 
 <div align='center'>
   
@@ -52,25 +58,27 @@ Out of all of the numerical features, age seem to be a good separator for the si
 
 ### Problem Formulation
    
-Dataset of features like balance, creditscore, tenure and so on are examined. Then, the models are to predict churn rates (0 for stay, 1 for churn) for each customer. For the training dataset, the models were evaluated using the final column excluded when fitting for training titled "Exited" which gives the actual churn rates for each customers. For the test dataset, no such "Exited" column were provided and the models are to be fitted and predict as close as possible to the actual churn rate for the challenge.
+The dataset contains customer features such as balance, creditscore, tenure and the likes. The goal is to predict churn rates for each customer, where 0 indicates the customer stayed and 1 indicates they churned. 
+For the training dataset, the models were evaluated using the "Exited" column which gives the actual churn rates for each customers. In contrast, the test dataset does not include this column - the models must infer churn probabilities as part of the challenge submission.
 
   * Models
     * Decision Tree: chosen for its simplicity and history of giving good scores.
-    * Histogram-based Gradient Boosting: chosen for its robustness in providing fast and accurate results in previously worked-on larger datasets.  
-    * Random Forest: chosen because it combines many trees and might be better than decision tree. 
-    * Logistic Regression: chosen because it's a good baseline model to handle binary problems. 
-    * K-Nearest Neighbors: chosen as it handles binary problem in a different way compared to the rest. 
+    * Histogram-based Gradient Boosting: selected for its robustness in providing fast and accurate results on large tabular datasets.  
+    * Random Forest: used to leverage the power of multiple decision trees to attain potentially better scores. 
+    * Logistic Regression: chosen because it's a simple yet effective baseline model for binary classification.
+    * K-Nearest Neighbors: selected for a different approach to predicting based on local similarity rather than model learning.
   * Parameters:
-    * All models were initiually tuned with parameters that would most likely fit in with the data set (random state, balanced class weight, etc.) 
-    * Histogram-based Gradient Boosting was ruther tuned using Scikit learn's Randomized Searched CV to find the best-performing parameters for the model.
+    * All models were initiually configured with reasonable defaults (e.g. setting random state and class weight= 'balanced' where applicable).
+    * Histogram-based Gradient Boosting was further fine-tuned using Scikit learn's Randomized Searched CV to find the optimal parameters for the model.
+    * Full parameters settings and tuning details can be found in ML.ipynb notebook.
 
 ### Training
 
-All of the machine learning algorthms above were imported into a notebook and fitted to the train dataset. Training took under 1 minute for all models because the dataset is not big and they are not conducting deep learning processes. 
+All of the machine learning algorithms mentioned above were implemented and trained in ML.ipynb notebook using the training dataset. Training times were minimal — under 1 minute for all models — due to the relatively small dataset size and the absence of deep learning computations.
 
 ### Performance Comparison
 
- Models were evaluated using some standard metrics like the accuracy score, F1 score, and recall score.
+  The models were evaluated using standard classification metrics such as Accuracy, F1 Score, Precision, Recall, and most importantly, AUC Score (area under the ROC curve), which is the main evaluation metric for the Kaggle challenge.
 
   
 <div align="center">
@@ -86,7 +94,7 @@ All of the machine learning algorthms above were imported into a notebook and fi
 </div>
 
   
- However, for the purpose of this challenge, the main evaluation score is based on the area under the ROC curve. ROC curves and its area score was calculated for all models used for the training dataset at 60% split. Cross-validation tests were run to ensure that the scores were not biased or happened by chance.
+  ROC curves and its AUC scores were calculated for all models implemented into the training dataset at 60% split. Cross-validation tests were run to ensure that the scores were not biased or happened by chance.
 
 
 <div align='center'>  
@@ -95,7 +103,7 @@ All of the machine learning algorthms above were imported into a notebook and fi
   
 </div>
  
- Histgoram-based Gradient Boosting seemed to perform the best. The model was then chosen to undergo additional tunings before applying it to an 80-20 train test split of the training dataset. After running cross-validation tests, it seemed an increase in data points slightly decreased the score of the model. However, this score average would still be among the highest out of all models tested if rounded to the nearest one place.
+  The Histogram-based Gradient Boosting model consistently outperformed others. It was selected for further tuning and was evaluated again using an 80-20 train-test split. Interestingly, increasing the training data slightly reduced its performance but the model still maintained the highest average AUC score among all tested models.
 
 
   <div align='center'>
@@ -107,11 +115,12 @@ All of the machine learning algorthms above were imported into a notebook and fi
 
 ### Conclusions
 
- Histogram-based Gradient Boosting have a slight edge over Decision Tree in this dataset. However, HistGradientBoost, DecisionTree, and RandomForest all performed in similar ranges for this problem. If aiming for the sake of simplicity, Decision Tree can do well without withholding too much potentials. 
+Among the top-performing models, Histogram-based Gradient Boosting had a slight edge over Decision Tree and Random Forest in this dataset. However, all three performed in similar ranges for this problem. Therefore, simple models like Decision Tree can stil offer strong baseline performance without withholding too much potentials. 
 
 ### Future Work
 
- Other machine learning algorithms like XGBoost, CatBoost, and LightGMBoost are promissery steps for the future. Many others have tried these algortihms and they proved, in general, to be very effective at solving and scoring high marks in Kaggle challenges.
+Future improvements could include testing other boosting algorithms such as XGBoost, LightGBM, and CatBoost — all of which are known for their high performance in structured data challenges. These models have shown strong results in similar Kaggle competitions and could potentially push AUC scores even higher. For this particular challenge, one of the models that the top scorers used was LightGMBoost.
+
 
 ## How to reproduce results
 
